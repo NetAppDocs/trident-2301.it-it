@@ -73,13 +73,13 @@ cluster1::*> volume snapshot restore -vserver vs0 -volume vol3 -snapshot vol3_sn
 La replica dei dati può svolgere un ruolo importante nella protezione contro la perdita di dati dovuta a guasti degli array di storage.
 
 
-NOTE: Per ulteriori informazioni sulle tecnologie di replica di ONTAP, vedere https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/GUID-A9A2F347-3E05-4F80-9E9C-CEF8F0A2F8E1.html["Documentazione ONTAP"^].
+NOTE: Per ulteriori informazioni sulle tecnologie di replica ONTAP, vedere https://docs.netapp.com/us-en/ontap/concepts/snapshot-copies-concept.html["Documentazione ONTAP"^] .
 
 
 
 === Replica di SnapMirror Storage Virtual Machine (SVM)
 
-È possibile utilizzare https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/GUID-8B187484-883D-4BB4-A1BC-35AC278BF4DC.html["SnapMirror"^] Replicare una SVM completa, che include le impostazioni di configurazione e i volumi. In caso di disastro, è possibile attivare la SVM di destinazione di SnapMirror per iniziare a fornire i dati. Una volta ripristinati i sistemi, è possibile tornare al sistema primario.
+Puoi usare https://docs.netapp.com/us-en/ontap/concepts/snapmirror-disaster-recovery-data-transfer-concept.html["SnapMirror"^] per replicare una SVM completa, che include le sue impostazioni di configurazione e i suoi volumi. In caso di disastro, è possibile attivare la SVM di destinazione di SnapMirror per iniziare a fornire i dati. Una volta ripristinati i sistemi, è possibile tornare al sistema primario.
 
 Astra Trident non è in grado di configurare le relazioni di replica, pertanto l'amministratore dello storage può utilizzare la funzione di replica SVM di SnapMirror di ONTAP per replicare automaticamente i volumi in una destinazione di disaster recovery (DR).
 
@@ -131,7 +131,7 @@ Di seguito viene riportata una panoramica dei passaggi per la configurazione del
 
 * Impostare il peering tra i cluster in cui risiedono i volumi e le SVM che servono i dati dei volumi.
 * Creare un criterio SnapMirror che controlli il comportamento della relazione e specifichi gli attributi di configurazione per tale relazione.
-* Creare una relazione SnapMirror tra il volume di destinazione e il volume di origine utilizzando[`snapmirror create` Command^] e assegnare il criterio SnapMirror appropriato.
+* Creare una relazione SnapMirror tra il volume di destinazione e il volume di origine utilizzando il[`snapmirror create` comando^] e assegnare il criterio SnapMirror appropriato.
 * Una volta creata la relazione SnapMirror, inizializzarla in modo da completare un trasferimento di riferimento dal volume di origine al volume di destinazione.
 
 
